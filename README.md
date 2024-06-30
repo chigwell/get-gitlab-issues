@@ -1,4 +1,4 @@
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/chigwell/get-gitlab-issues)](https://github.com/chigwell/get-gitlab-issues/releases)
+[![PyPI version](https://badge.fury.io/py/get-gitlab-issues.svg)](https://badge.fury.io/py/get-gitlab-issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Downloads](https://static.pepy.tech/badge/get-gitlab-issues)](https://pepy.tech/project/get-gitlab-issues)
 
