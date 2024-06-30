@@ -4,7 +4,7 @@
 
 # Get GitLab Issues
 
-`Get GitLab Issues` is a Python package designed to automate the extraction and management of issues from GitLab repositories. This tool is essential for developers looking to streamline their issue tracking processes directly through Python scripts.
+`Get GitLab Issues` is a Python package designed to facilitate the extraction and management of issues from GitLab repositories. This tool is essential for developers looking to streamline their issue tracking processes directly through Python scripts.
 
 ## Installation
 
@@ -16,34 +16,38 @@ pip install get-gitlab-issues
 
 ## Usage
 
-`Get GitLab Issues` provides a straightforward API to interact with GitLab issues. Here is a basic example of how to use the package to retrieve issues:
+`Get GitLab Issues` provides a straightforward API to interact with GitLab issues. Below is an example of how to use the package to retrieve issues and check user access:
 
 ### Example
 
 ```python
-from get_gitlab_issues import GitLabIssueFetcher
+from get_gitlab_issues import check_access, get_gitlab_issues, get_gitlab_issue
 
-# Initialize the issue fetcher for a specific repository
-fetcher = GitLabIssueFetcher(repo_id='123456', private_token='YOUR_PRIVATE_TOKEN')
+# Check user access
+if check_access('YOUR_PRIVATE_TOKEN', 'https://gitlab.example.com'):
+    print("Access verified")
 
-# Fetch issues
-issues = fetcher.fetch_all_issues()
+# Fetch issues for a specific project
+issues = get_gitlab_issues('YOUR_PRIVATE_TOKEN', 'https://gitlab.example.com', '123456')
 for issue in issues:
-    print(issue.title, issue.description)
+    print(issue['title'], issue['description'])
+
+# Fetch a specific issue
+issue_detail = get_gitlab_issue('YOUR_PRIVATE_TOKEN', 'https://gitlab.example.com', '123456', '1')
+print(issue_detail['title'], issue_detail['description'])
 ```
 
-## Input Parameters
+## Functions
 
-The main function `fetch_all_issues` in `GitLabIssueFetcher` class accepts several parameters:
-
-- **repo_id** (`str`): The unique identifier for the GitLab repository.
-- **private_token** (`str`): Your GitLab personal access token for authentication.
+- `check_access(token, url)`: Checks if the provided token has access to the GitLab API.
+- `get_gitlab_issues(token, url, project_id, labels=None, iteration_id=None)`: Retrieves a list of issues from a specified project.
+- `get_gitlab_issue(token, url, project_id, issue_id)`: Retrieves details for a specific issue.
 
 ## Features
 
-- Easy to install and use.
-- Efficiently fetches issues from GitLab repositories.
-- Suitable for developers and teams looking to automate their development workflows.
+- Simple installation and easy usage.
+- Efficient access to GitLab issues through the API.
+- Ability to check user access and retrieve specific issues or lists of issues.
 
 ## Contributing
 
