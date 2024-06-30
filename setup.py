@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='get-gitlab-issues',
-    version='0.0.5',
+    version='0.0.7',
     author='Eugene Evstafev',
     author_email='chigwel@gmail.com',
     description='A Python package for extracting issues from GitLab repositories.',
