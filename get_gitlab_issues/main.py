@@ -1,4 +1,5 @@
 import requests
+from urllib.parse import urlencode
 
 
 def check_access(token, url):
@@ -9,11 +10,8 @@ def check_access(token, url):
 
 def get_gitlab_issues(token, url, project_id, labels=None, iteration_id=None):
     headers = {'Private-Token': token}
-    params = {
-        'labels': labels,
-        'iteration_id': iteration_id
-    }
-    response = requests.get(f"{url}/projects/{project_id}/issues", headers=headers, params=params)
+    url = f"{url}/projects/{project_id}/issues?labels={labels}&iteration_id={iteration_id}"
+    response = requests.get(url, headers=headers)
     if response.status_code == 200:
         return response.json()
     else:
