@@ -27,20 +27,20 @@ from get_gitlab_issues import check_access, get_gitlab_issues, get_gitlab_issue
 if check_access('YOUR_PRIVATE_TOKEN', 'https://gitlab.example.com'):
     print("Access verified")
 
-# Fetch issues for a specific project
+# Fetch issues for a specific group
 issues = get_gitlab_issues('YOUR_PRIVATE_TOKEN', 'https://gitlab.example.com', '123456')
 for issue in issues:
-    print(issue['title'], issue['description'])
+    print(issue.title, issue.description)
 
 # Fetch a specific issue
 issue_detail = get_gitlab_issue('YOUR_PRIVATE_TOKEN', 'https://gitlab.example.com', '123456', '1')
-print(issue_detail['title'], issue_detail['description'])
+print(issue_detail.title, issue_detail.description)
 ```
 
 ## Functions
 
 - `check_access(token, url)`: Checks if the provided token has access to the GitLab API.
-- `get_gitlab_issues(token, url, project_id, labels=None, iteration_id=None)`: Retrieves a list of issues from a specified project.
+- `get_gitlab_issues(token, url, group_id, labels=None, iteration_id=None)`: Retrieves a list of issues from a specified group.
 - `get_gitlab_issue(token, url, project_id, issue_id)`: Retrieves details for a specific issue.
 
 ## Features

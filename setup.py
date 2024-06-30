@@ -1,8 +1,9 @@
 from setuptools import setup, find_packages
 
+
 setup(
     name='get-gitlab-issues',
-    version='0.0.7',
+    version='0.0.8',
     author='Eugene Evstafev',
     author_email='chigwel@gmail.com',
     description='A Python package for extracting issues from GitLab repositories.',
@@ -11,7 +12,8 @@ setup(
     url='https://github.com/chigwell/get-gitlab-issues',
     packages=find_packages(),
     install_requires=[
-        'requests==2.32.3'
+        'requests==2.32.3',
+        'python-gitlab==4.7.0'
     ],
     classifiers=[
         'License :: OSI Approved :: MIT License',
